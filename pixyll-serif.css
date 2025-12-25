@@ -1,0 +1,785 @@
+:root {
+  --control-text-color: #777;
+
+  /* Color palette */
+  --text-color: #333;
+  --muted-text: #7a7a7a;
+  --link-color: #463f5c;
+  --blockquote-text: #555;
+  --background-meta: #fafafa;
+  --border-color: #333;
+
+  /* Font families */
+  --font-serif: "Source Serif Pro", "Source Han Serif SC", "Merriweather",
+    "PT Serif", Georgia, "Times New Roman", "STSong", "Segoe UI Emoji", serif;
+  --font-mono: "JetBrainsMono Nerd Font", "Source Han Sans SC", Menlo, Monaco,
+    "Courier New", monospace;
+
+  /* Spacing */
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 1.5rem;
+
+  /* Font sizes */
+  --font-size-h1: 2.298rem;
+  --font-size-h2: 1.625rem;
+  --font-size-h3: 1.3rem;
+  --font-size-h4: 1.15rem;
+  --font-size-body: 1.25rem;
+  --font-size-base: 1.125rem;
+  --font-size-code: 1rem;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Merriweather Light"), local("Merriweather-Light"),
+    url("./pixyll/merriweather-v19-latin-300.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Merriweather Bold"), local("Merriweather-Bold"),
+    url("./pixyll/merriweather-v19-latin-700.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  font-style: italic;
+  font-weight: 300;
+  src: local("Merriweather Light Italic"), local("Merriweather-LightItalic"),
+    url("./pixyll/merriweather-v19-latin-300italic.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  font-style: italic;
+  font-weight: 700;
+  src: local("Merriweather Bold Italic"), local("Merriweather-BoldItalic"),
+    url("./pixyll/merriweather-v19-latin-700italic.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Lato Light"), local("Lato-Light"),
+    url("./pixyll/lato-v14-latin-300.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Lato Black"), local("Lato-Black"),
+    url("./pixyll/lato-v14-latin-900.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 300;
+  src: local("Lato Light Italic"), local("Lato-LightItalic"),
+    url("./pixyll/lato-v14-latin-300italic.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 900;
+  src: local("Lato Black Italic"), local("Lato-BlackItalic"),
+    url("./pixyll/lato-v14-latin-900italic.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+h1,
+.h1,
+.f1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+h2,
+.h2,
+.f2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+h3,
+.h3,
+.f3 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+h4 {
+  font-size: 1.13rem;
+}
+
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+  font-family: var(--font-serif);
+  line-height: 1.618rem;
+}
+
+ol {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 0.5em !important;
+  margin-block-end: 0.5em !important;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+#write {
+  max-width: 914px;
+  color: var(--text-color);
+  font-variant-ligatures: normal;
+}
+
+@media only screen and (min-width: 1400px) {
+  #write {
+    max-width: 1100px;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  #write {
+    max-width: 1200px;
+  }
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+}
+
+body {
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.ty-table-edit {
+  background: #ededed;
+}
+
+table {
+  width: 100%;
+  font-size: var(--font-size-base);
+}
+
+table>thead>tr>th,
+table>thead>tr>td,
+table>tbody>tr>th,
+table>tbody>tr>td,
+table>tfoot>tr>th,
+table>tfoot>tr>td {
+  padding: 12px;
+  line-height: 1.2;
+  vertical-align: top;
+  border-top: 1px solid var(--border-color);
+}
+
+table>thead>tr>th {
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--border-color);
+}
+
+table>caption+thead>tr:first-child>th,
+table>caption+thead>tr:first-child>td,
+table>colgroup+thead>tr:first-child>th,
+table>colgroup+thead>tr:first-child>td,
+table>thead:first-child>tr:first-child>th,
+table>thead:first-child>tr:first-child>td {
+  border-top: 0;
+}
+
+table>tbody+tbody {
+  border-top: 2px solid var(--border-color);
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.5;
+  margin-top: var(--spacing-small) !important;
+  margin-bottom: var(--spacing-small) !important;
+}
+
+abbr {
+  border-bottom: 1px black dotted;
+  cursor: help;
+}
+
+pre,
+code {
+  font-family: var(--font-mono);
+  line-height: 1.5;
+}
+
+.CodeMirror .CodeMirror-code pre.CodeMirror-line {
+  line-height: 1.8;
+}
+
+code,
+.md-fences {
+  color: var(--muted-text);
+}
+
+.md-fences {
+  padding: 1.125em;
+  margin-bottom: 0.88em;
+  font-size: var(--font-size-code);
+  border: 1px solid var(--muted-text);
+  padding-bottom: var(--spacing-small);
+  padding-top: var(--spacing-small);
+}
+
+blockquote {
+  padding: 0.67em;
+  border-left: 5px solid var(--muted-text);
+  color: var(--blockquote-text);
+  padding: 1.33em;
+}
+
+em {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+blockquote em {
+  color: #000;
+}
+
+blockquote footer {
+  font-size: 0.85rem;
+  font-style: normal;
+  background-color: #fff;
+  color: var(--muted-text);
+  border-color: transparent;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  font-family: var(--font-serif);
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 1em 0;
+}
+
+h6,
+.h6 {
+  font-family: var(--font-serif);
+  font-weight: normal;
+  line-height: 1.618rem;
+  text-align: right;
+}
+
+@media screen and (min-width: 48em) {
+
+  .h1,
+  h1 {
+    font-size: var(--font-size-h1);
+  }
+
+  .h2,
+  h2 {
+    font-size: var(--font-size-h2);
+  }
+
+  .h3,
+  h3 {
+    font-size: var(--font-size-h3);
+  }
+
+  .h4,
+  h4 {
+    font-size: var(--font-size-h4);
+  }
+
+  #write>h4.md-focus:before,
+  #write>h5.md-focus:before,
+  #write>h6.md-focus:before {
+    top: 1px;
+  }
+
+  .p,
+  p,
+  li {
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+  }
+
+  table {
+    font-size: var(--font-size-body);
+  }
+}
+
+@media print {
+
+  html {
+    font-size: 13px;
+  }
+
+  #write {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 2rem;
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+    -webkit-column-fill: auto;
+    column-fill: auto;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  div.CodeMirror-code[role="presentation"] pre.CodeMirror-line {
+    font-size: 80%;
+    color: black;
+    line-height: 1.25rem;
+  }
+
+  /* Make pre/code wrap and not overflow columns */
+  pre {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  /* Ensure fences and tables fit within a column */
+  .md-fences,
+  table {
+    width: 100%;
+  }
+
+  /* Ensure LaTeX fits within a column */
+  .mathjax-block,
+  .md-mathjax-midline {
+    max-width: 100%;
+    overflow-x: hidden;
+    page-break-inside: avoid;
+  }
+
+  /* Fix for abnormal truncation caused by negative margin hack in md-meta-block */
+  #write pre.md-meta-block {
+    margin-top: 0 !important;
+    padding-top: 1rem !important;
+    margin-left: 0 !important;
+    border: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: transparent !important;
+  }
+}
+
+@media (max-width: 48em) {
+  blockquote {
+    margin-left: var(--spacing-medium);
+    margin-right: 0;
+    padding: var(--spacing-small);
+  }
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+#write {
+  padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+  min-height: 35px;
+  padding: var(--spacing-small) var(--spacing-medium);
+  white-space: pre;
+  border: 0px;
+
+  border-left: 30px #f8f8f8 solid;
+  border-right: 30px #f8f8f8 solid;
+  width: 100vw;
+  max-width: calc(100% + 60px);
+
+  margin-left: -30px;
+  margin-bottom: 2em;
+  margin-top: -2010px;
+  padding-top: 2000px;
+  padding-bottom: 10px;
+  line-height: 1.5em;
+  color: var(--muted-text);
+  background-color: var(--background-meta);
+  font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  clear: both;
+  padding-left: 0;
+  font-size: var(--font-size-base);
+}
+
+.md-image>.md-meta {
+  color: var(--link-color);
+}
+
+.footnotes {
+  font-size: 1.1rem;
+}
+
+.code-tooltip {
+  background: white;
+}
+
+.code-tooltip-content {
+  font-size: 1.1rem;
+}
+
+.task-list {
+  padding-left: 0;
+}
+
+.md-task-list-item {
+  padding-left: 34px;
+}
+
+.md-task-list-item>input {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+  -webkit-appearance: initial;
+  top: -0.2rem;
+  margin-left: -1.6em;
+  margin-top: calc(1rem - 7px);
+  border: none;
+}
+
+.md-task-list-item>input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.md-task-list-item>input:before {
+  border: 1px solid #555;
+  border-radius: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fff;
+  content: " ";
+  transition: background-color 200ms ease-in-out;
+  display: block;
+}
+
+.md-task-list-item>input:checked:before,
+.md-task-list-item>input[checked]:before {
+  background: #333;
+  border-width: 2px;
+  display: inline-block;
+  transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item>input:checked:after,
+.md-task-list-item>input[checked]:after {
+  opacity: 1;
+}
+
+.md-task-list-item>input:after {
+  opacity: 1;
+  -webkit-transition: opacity 0.05s ease-in-out;
+  -moz-transition: opacity 0.05s ease-in-out;
+  transition: opacity 0.05s ease-in-out;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 0.4375rem;
+  left: 0.28125rem;
+  width: 0.9375rem;
+  height: 0.5rem;
+  border: 3px solid #fff;
+  border-top: 0;
+  border-right: 0;
+  content: " ";
+  opacity: 0;
+}
+
+#write .md-raw-inline.md-tag {
+  font-family: unset;
+  color: unset;
+  white-space: unset;
+  opacity: unset;
+}
+
+.md-toc:focus .md-toc-content {
+  margin-top: 19px;
+}
+
+#typora-sidebar {
+  font-size: 1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+  background-color: white;
+}
+
+.outline-content li,
+.outline-content ul {
+  font-size: 1rem !important;
+}
+
+.outline-title {
+  line-height: inherit;
+  margin-top: 10px;
+}
+
+.outline-expander {
+  width: 18px;
+}
+
+.outline-expander:before {
+  content: "+";
+  font-family: inherit;
+  color: rgb(108, 108, 108);
+  font-size: 1.5rem;
+  top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+  content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "-";
+}
+
+#typora-source {
+  font-family: Courier, monospace;
+  color: #6a6a6a;
+}
+
+.os-windows #typora-source {
+  font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header,
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+  color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom,
+.cm-s-typora-default .cm-number {
+  color: #777777;
+}
+
+.md-diagram-panel {
+  margin-top: 24px;
+  margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+  background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+  bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+  border-color: #e5e5e5;
+}
+
+li {
+  margin: var(--spacing-small) 0;
+}
+
+li>*:last-child {
+  margin-bottom: 0;
+}
+
+/* Inline code styling - more robust and works in all contexts */
+#write code:not(.md-fences):not(.CodeMirror-line *):not(pre *),
+p code,
+li code,
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code,
+blockquote code,
+td code,
+th code,
+strong code,
+em code,
+b code,
+i code,
+a code {
+  color: #dd1144;
+  font-size: var(--font-size-code);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 0px 4px;
+  vertical-align: baseline;
+  background-color: #f8f8f8;
+  font-family: var(--font-mono);
+}
+
+span.md-alert-text-container::after {
+  font-size: 1.2rem;
+}
+
+.md-alert {
+  margin-top: 0.75rem;
+  margin-bottom: 24px;
+}
+
+li.task-list-done span.md-plain {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+li.task-list-item.md-task-list-item {
+  display: block;
+}
+
+li.task-list-item.md-task-list-item input {
+  vertical-align: middle;
+}
+
+li.task-list-item.md-task-list-item p {
+  vertical-align: middle;
+}
+
+.highlight {
+  background: yellow;
+}
+
+[md-inline="linebreak"]>.md-linebreak-mark::before {
+  content: "↓";
+  opacity: 0.3;
+}
+
+#write ul {
+  list-style: none;
+  padding-left: var(--spacing-large);
+}
+
+#write ul li {
+  position: relative;
+}
+
+#write ul li::before {
+  content: "";
+  position: absolute;
+  left: -0.8em;
+  width: 0.2em;
+  height: 0.2em;
+  border-radius: 50%;
+  background: currentColor;
+  top: 0.5lh;
+  transform: translateY(-50%);
+}
+
+/* Prevent bullet points from appearing on ordered list items */
+#write ol>li::before {
+  content: none;
+  display: none;
+}
+
+@supports not (top: 0.5lh) {
+  #write ul li::before {
+    top: 0.6em;
+  }
+}
+
+/* Fix vertical alignment for sidebar file menu sort item */
+#sidebar-files-menu>li.menuitem-group-label.file-action-item.file-sort-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#sidebar-files-menu>li.menuitem-group-label.file-action-item.file-sort-item>span:nth-child(1) {
+  line-height: 1;
+  display: inline-block;
+}
+
+#sidebar-files-menu .sort-button-area {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
